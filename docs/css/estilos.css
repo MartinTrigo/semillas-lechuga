@@ -1,0 +1,559 @@
+/* ==========================================================================
+   Semillas de Lechuga — estilos
+
+   Pensado para usarse con el celular en una mano y la regla en la otra, de pie
+   al lado de la bandeja: contraste alto, tipografía grande y nada que se toque
+   con menos de 48 px.
+
+   Los tres colores del mix (verde, rojo y morado) son los mismos que se usan
+   en la interfaz, así que la app se ve como lo que se está produciendo.
+   ========================================================================== */
+
+:root {
+  --verde: #2f6b2a;          /* hoja verde */
+  --verde-claro: #4f9a44;
+  --verde-suave: #eaf3e7;
+  --rojo: #a33b2f;           /* New Red Fire, Fogosa */
+  --morado: #7b3f6d;         /* Lilar */
+  --dorado: #c98a1f;
+  --tierra: #6b4423;
+
+  --texto: #1d2419;
+  --texto-suave: #5c6b57;
+  --fondo: #f5f7f2;
+  --papel: #ffffff;
+  --borde: #d7ded1;
+  --error: #b3261e;
+  --error-suave: #fceceb;
+
+  --radio: 12px;
+  --sombra: 0 1px 3px rgba(0, 0, 0, .12);
+  --ancho: 720px;
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; min-height: 100%; }
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 17px;
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* ---------- Cabecera ---------- */
+
+.cabecera {
+  background: var(--verde);
+  color: #fff;
+  box-shadow: var(--sombra);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 3px solid var(--verde-claro);
+}
+
+.barra {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: var(--ancho);
+  margin: 0 auto;
+  padding: 12px 16px;
+}
+
+.barra__texto { min-width: 0; }
+.barra h1 { margin: 0; font-size: 21px; font-weight: 700; line-height: 1.2; }
+.barra p { margin: 2px 0 0; font-size: 13px; opacity: .85; }
+
+.volver {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  font-size: 22px;
+  color: #fff;
+  background: rgba(255, 255, 255, .15);
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.volver:active { background: rgba(255, 255, 255, .3); }
+
+/* ---------- Contenido ---------- */
+
+.vista {
+  flex: 1;
+  width: 100%;
+  max-width: var(--ancho);
+  margin: 0 auto;
+  padding: 16px 16px 40px;
+}
+
+.cargando { color: var(--texto-suave); text-align: center; padding: 40px 0; }
+
+h2 { font-size: 19px; margin: 0 0 4px; }
+
+.tarjeta {
+  background: var(--papel);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 16px;
+  margin-bottom: 16px;
+}
+.tarjeta h2 { margin-top: 0; }
+
+.nota { color: var(--texto-suave); font-size: 15px; margin: 4px 0 0; }
+
+/* ---------- Menú del inicio ---------- */
+
+.menu { display: grid; gap: 12px; }
+
+.menu__boton {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  min-height: 68px;
+  padding: 14px 16px;
+  text-align: left;
+  font: inherit;
+  color: var(--texto);
+  background: var(--papel);
+  border: 1px solid var(--borde);
+  border-left: 5px solid var(--verde-claro);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  cursor: pointer;
+}
+.menu__boton:active { background: var(--verde-suave); }
+
+.menu__boton[disabled] {
+  cursor: not-allowed;
+  opacity: .55;
+  border-left-color: var(--borde);
+  box-shadow: none;
+}
+
+.menu__boton--ficha { border-left-color: var(--morado); }
+
+.menu__icono { font-size: 26px; flex: none; width: 34px; text-align: center; }
+.menu__titulo { font-weight: 600; display: block; }
+.menu__detalle { display: block; font-size: 14px; color: var(--texto-suave); }
+
+/* ---------- Resumen de la variedad ---------- */
+
+.resumen {
+  background: var(--verde-suave);
+  border: 1px solid var(--verde-claro);
+  border-radius: var(--radio);
+  padding: 14px 16px;
+  margin-bottom: 16px;
+}
+.resumen h2 { font-size: 17px; margin: 0 0 2px; }
+.resumen dl { display: flex; flex-wrap: wrap; gap: 4px 20px; margin: 8px 0 0; font-size: 15px; }
+.resumen dt { color: var(--texto-suave); }
+.resumen dd { margin: 0 0 0 6px; font-weight: 600; }
+.resumen div { display: flex; }
+
+.variedad-fija {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--verde);
+  background: var(--verde-suave);
+  border: 1px solid var(--verde-claro);
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin: 10px 0 0;
+}
+
+/* ---------- Avisos ---------- */
+
+.aviso { border-radius: var(--radio); padding: 12px 14px; margin: 0 0 16px; font-size: 15px; }
+.aviso--info { background: #fdf6e6; border: 1px solid var(--dorado); }
+.aviso--error { background: var(--error-suave); border: 1px solid var(--error); color: var(--error); }
+.aviso--ok { background: var(--verde-suave); border: 1px solid var(--verde-claro); }
+
+/* ---------- Formularios ---------- */
+
+.campo { margin-bottom: 16px; }
+
+/* Hijo directo a propósito: los cinco botones de la escala también son
+   <label>, y si esta regla los alcanzara los volvería bloques apilados. */
+.campo > label { display: block; font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+
+.campo .ayuda {
+  display: block;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--texto-suave);
+  margin-bottom: 6px;
+}
+
+.unidad { font-weight: 400; color: var(--texto-suave); }
+
+/* El puntito que marca los campos que no se pueden dejar vacíos. Va después
+   de la etiqueta y no como un asterisco rojo: no es un error, es un aviso. */
+.obliga { color: var(--rojo); font-weight: 700; }
+
+input, select, textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 10px 12px;
+  font: inherit;
+  color: var(--texto);
+  background: var(--papel);
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: 3px solid var(--verde-claro);
+  outline-offset: 1px;
+  border-color: var(--verde-claro);
+}
+
+input.mal, select.mal, textarea.mal { border-color: var(--error); background: var(--error-suave); }
+
+.campo__error { display: block; color: var(--error); font-size: 14px; margin-top: 4px; }
+
+textarea { resize: vertical; min-height: 70px; }
+
+/* ---------- La escala 1 a 5 ----------
+   Cinco botones en fila. Con guantes y al sol, un desplegable se erra. */
+
+.escala { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
+.escala.mal { outline: 2px solid var(--error); outline-offset: 3px; border-radius: 8px; }
+
+.escala__punto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-height: 60px;
+  padding: 6px 2px;
+  text-align: center;
+  background: var(--papel);
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* El radio real queda oculto pero sigue existiendo: el teclado y los lectores
+   de pantalla lo encuentran igual. */
+.escala__punto input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  min-height: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.escala__n { font-size: 20px; font-weight: 700; line-height: 1; }
+.escala__que { font-size: 10px; color: var(--texto-suave); line-height: 1.1; }
+
+.escala__punto.elegido {
+  color: #fff;
+  background: var(--verde);
+  border-color: var(--verde);
+}
+.escala__punto.elegido .escala__que { color: rgba(255, 255, 255, .85); }
+.escala__punto:focus-within { outline: 3px solid var(--verde-claro); outline-offset: 1px; }
+
+/* ---------- Botones ---------- */
+
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 50px;
+  padding: 12px 20px;
+  font: inherit;
+  font-weight: 600;
+  color: #fff;
+  background: var(--verde);
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.boton:active { background: var(--verde-claro); }
+.boton[disabled] { opacity: .5; cursor: not-allowed; }
+.boton--ancho { width: 100%; }
+
+.boton--secundario {
+  color: var(--verde);
+  background: var(--papel);
+  border: 2px solid var(--verde);
+}
+.boton--secundario:active { background: var(--verde-suave); }
+
+a.boton { text-decoration: none; }
+
+.boton--peligro {
+  color: var(--error);
+  background: none;
+  border: 0;
+  font: inherit;
+  min-height: 44px;
+  padding: 8px 10px;
+  cursor: pointer;
+}
+.boton--editar { color: var(--verde); font-weight: 600; }
+
+/* ---------- Lista de registros ---------- */
+
+.renglones { list-style: none; margin: 0 0 16px; padding: 0; }
+
+.renglon {
+  background: var(--papel);
+  border: 1px solid var(--borde);
+  border-left: 5px solid var(--verde-claro);
+  border-radius: var(--radio);
+  padding: 12px 14px;
+  margin-bottom: 10px;
+}
+
+.renglon__cab { display: flex; align-items: center; gap: 8px; justify-content: space-between; }
+.renglon__fecha { font-weight: 700; }
+.renglon__producto { display: block; font-weight: 600; color: var(--verde); margin-top: 2px; }
+.renglon__detalle { display: block; font-size: 14px; color: var(--texto-suave); margin-top: 4px; }
+
+.renglon__acciones {
+  display: flex;
+  gap: 4px;
+  justify-content: flex-end;
+  margin-top: 6px;
+  border-top: 1px solid var(--borde);
+  padding-top: 4px;
+}
+
+/* La pastilla dice si el registro ya está en la planilla o sigue solo acá. */
+.pastilla {
+  flex: none;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .3px;
+  text-transform: uppercase;
+  color: var(--dorado);
+  background: #fdf6e6;
+  border: 1px solid var(--dorado);
+  border-radius: 10px;
+  padding: 2px 8px;
+}
+.pastilla--ok { color: var(--verde); background: var(--verde-suave); border-color: var(--verde-claro); }
+
+/* Lo que la app calcula sola: se distingue de lo que se cargó a mano. */
+.calculado {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--borde);
+  font-size: 14px;
+}
+.calculado i { font-style: normal; color: var(--texto-suave); }
+.calculado span { font-weight: 600; }
+
+.vacio { color: var(--texto-suave); font-style: italic; padding: 14px 0; margin: 0 0 8px; }
+
+/* La explicación de qué es cada etapa, arriba del formulario. */
+.tarjeta--que-es { background: var(--verde-suave); border-color: var(--verde-claro); }
+.tarjeta--que-es p { margin: 0; }
+
+.tarjeta--calculo { background: #fdf6e6; border-color: var(--dorado); }
+
+/* ---------- Wiki ---------- */
+
+.cientifico { font-style: italic; color: var(--texto-suave); font-size: 15px; margin: 0 0 8px; }
+.cientifico .sello-comarca { font-style: normal; }
+
+.resumen-ficha { font-size: 17px; margin: 0; }
+
+/* Categorías plegables, hechas con <details>: ya saben abrirse y cerrarse
+   solas, responden al teclado y funcionan aunque algo del JavaScript falle. */
+
+.grupo {
+  background: var(--papel);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.grupo[open] { border-color: var(--verde-claro); }
+
+.grupo__cab {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 62px;
+  padding: 12px 14px;
+  cursor: pointer;
+  list-style: none;              /* saca el triangulito de Firefox */
+  user-select: none;
+}
+.grupo__cab::-webkit-details-marker { display: none; }   /* y el de Chrome */
+.grupo__cab:active { background: var(--verde-suave); }
+.grupo[open] .grupo__cab { border-bottom: 1px solid var(--borde); }
+
+.grupo__icono { font-size: 24px; flex: none; }
+.grupo__texto { flex: 1; min-width: 0; }
+.grupo__nombre { display: block; font-weight: 600; }
+.grupo__cuenta { display: block; font-size: 14px; color: var(--texto-suave); }
+
+.grupo__flecha {
+  flex: none;
+  width: 11px;
+  height: 11px;
+  border-right: 2.5px solid var(--verde);
+  border-bottom: 2.5px solid var(--verde);
+  transform: rotate(45deg);
+  margin: -4px 4px 0 0;
+  transition: transform .15s ease;
+}
+.grupo[open] .grupo__flecha { transform: rotate(-135deg); margin-top: 4px; }
+
+.grupo__cuerpo { padding: 12px 14px 14px; }
+
+.indice { list-style: none; margin: 0; padding: 0; }
+
+.indice__item {
+  display: block;
+  width: 100%;
+  min-height: 56px;
+  padding: 12px 14px;
+  text-align: left;
+  font: inherit;
+  color: var(--texto);
+  background: var(--papel);
+  border: 1px solid var(--borde);
+  border-left: 4px solid var(--verde-claro);
+  border-radius: 8px;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+.indice__item:active { background: var(--verde-suave); }
+
+.indice__nombre { display: block; font-weight: 600; }
+.indice__cientifico { display: block; font-size: 14px; color: var(--texto-suave); margin-top: 2px; }
+
+.sello-comarca {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .4px;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--verde-claro);
+  border-radius: 10px;
+  padding: 2px 8px;
+  vertical-align: middle;
+}
+
+/* ---------- Foto de la variedad ----------
+   Se reservan las proporciones con aspect-ratio para que el texto no salte
+   mientras la imagen carga, que con señal lenta es molesto. */
+
+.foto {
+  margin: 12px 0 0;
+  background: var(--papel);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  overflow: hidden;
+}
+
+.foto img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: var(--verde-suave);
+}
+
+.foto figcaption { padding: 10px 14px; font-size: 14px; color: var(--texto-suave); }
+.foto__credito { display: block; font-size: 12px; opacity: .8; margin-top: 2px; }
+
+.lista, .pasos { margin: 8px 0 0; padding-left: 22px; }
+.lista li, .pasos li { margin-bottom: 8px; }
+.pasos li { padding-left: 4px; }
+.lista--escala { list-style: none; padding-left: 0; }
+.lista--escala li { border-left: 4px solid var(--verde-claro); padding-left: 10px; }
+
+.datos-rapidos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 24px;
+  margin: 12px 0 0;
+  font-size: 15px;
+}
+.datos-rapidos div { display: flex; gap: 6px; }
+.datos-rapidos dt { color: var(--texto-suave); }
+.datos-rapidos dd { margin: 0; font-weight: 600; }
+
+.etiquetas { margin: 12px 0 0; display: flex; flex-wrap: wrap; gap: 6px; }
+
+.etiqueta {
+  font-size: 13px;
+  color: var(--verde);
+  background: var(--verde-suave);
+  border: 1px solid var(--verde-claro);
+  border-radius: 12px;
+  padding: 2px 10px;
+}
+
+/* Los cuidados y lo legal se distinguen del resto: son lo que evita un
+   problema, no información de fondo. */
+.tarjeta--cuidado { border-left: 5px solid var(--dorado); background: #fdfaf3; }
+.tarjeta--fuente { background: transparent; border-style: dashed; }
+.tarjeta--fuente .lista li { font-size: 14px; color: var(--texto-suave); }
+.tarjeta--pendiente { border-style: dashed; border-left: 5px solid var(--morado); }
+
+a { color: var(--verde); }
+
+/* ---------- Espaciados sueltos ----------
+   Van acá y no como atributo "style" en el HTML: la política de contenido no
+   admite estilos sueltos en la página, justamente para que nada que se cuele
+   pueda pintar la pantalla. */
+
+.separado { margin-top: 20px; }
+.centrado { display: block; margin: 8px auto 0; }
+.al-final { margin: 16px 0 0; }
+.nota--pie { margin-top: 24px; }
+
+/* ---------- Pie ---------- */
+
+.pie {
+  background: var(--verde);
+  color: rgba(255, 255, 255, .85);
+  text-align: center;
+  font-size: 13px;
+  padding: 18px 16px;
+  margin-top: auto;
+}
+.pie p { margin: 2px 0; }
+.pie__version { opacity: .6; font-size: 12px; margin-top: 8px; }
+
+/* ---------- Mensaje flotante ---------- */
+
+.brindis {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  max-width: calc(100% - 32px);
+  background: var(--texto);
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 24px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, .3);
+  z-index: 50;
+}

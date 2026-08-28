@@ -1,0 +1,170 @@
+{
+  "nota": "Material de consulta de la wiki. Sale del informe técnico del proyecto. Se puede leer sin conexión y sin haber cargado nada.",
+
+  "temas": [
+    {
+      "id": "por-que-lechuga",
+      "titulo": "Por qué la lechuga es fácil de multiplicar",
+      "emoji": "🧬",
+      "resumen": "Es autógama: se poliniza sola antes de abrir la flor. Es de las hortalizas más simples para guardar semilla propia.",
+      "bloques": [
+        { "tipo": "parrafo", "texto": "La lechuga (Lactuca sativa L.) tiene flores hermafroditas que habitualmente se autopolinizan antes o en el momento mismo de abrirse. Por eso cada planta produce, casi siempre, semilla de sí misma: no hace falta ningún insecto ni ningún manejo especial para que haya semilla." },
+        { "tipo": "parrafo", "texto": "Autógama no quiere decir que nunca se cruce. Se han medido niveles bajos de polinización cruzada. Cuando hay varias variedades floreciendo al mismo tiempo, que es exactamente nuestro caso, conviene separarlas o poner una barrera." },
+        { "tipo": "aviso", "texto": "Antes de multiplicar una semilla comprada hay que verificar dos cosas: que sea de polinización abierta (no un híbrido F1) y que no tenga una restricción de propiedad vegetal que impida multiplicarla. La semilla sacada de un híbrido F1 no sirve para conservar el tipo." }
+      ]
+    },
+
+    {
+      "id": "aislamiento",
+      "titulo": "Distancia entre variedades en floración",
+      "emoji": "📏",
+      "resumen": "Para este proyecto: 3 a 6 m entre variedades floreciendo, o barrera física si hay poco espacio.",
+      "bloques": [
+        { "tipo": "parrafo", "texto": "Las recomendaciones publicadas varían mucho según el objetivo. Para conservación práctica aparecen valores de 2 a 3 m; las guías más conservadoras piden 3 a 6 m o más. La diferencia no es un error: responde a objetivos distintos (autoconsumo, mantenimiento varietal, conservación genética o producción comercial)." },
+        { "tipo": "lista", "titulo": "Lo que adoptamos", "items": [
+          "3 a 6 m entre variedades en floración, siempre que se pueda.",
+          "Si hay poco espacio: malla antiinsectos, embolsado de inflorescencias o escalonamiento de la floración.",
+          "El embolsado es además la mejor demostración didáctica: se ve para qué sirve."
+        ]}
+      ]
+    },
+
+    {
+      "id": "seleccion-masal",
+      "titulo": "Selección masal: cómo se hace",
+      "emoji": "🎯",
+      "resumen": "Elegir 25 a 40 plantas buenas y representativas por variedad, dejarlas florecer y juntar su semilla.",
+      "bloques": [
+        { "tipo": "parrafo", "texto": "La selección masal consiste en elegir un conjunto de plantas con los caracteres deseados, dejar que produzcan semilla y mezclar la semilla de todas ellas para formar la población siguiente. En una especie autógama como la lechuga, la selección actúa sobre líneas individuales dentro de la población, así que mantener varias plantas evita que la selección quede demasiado estrecha." },
+        { "tipo": "pasos", "titulo": "Los cinco pasos", "items": [
+          "Partir de 128 plantas por variedad (una bandeja).",
+          "Evaluar durante todo el cultivo.",
+          "Eliminar las enfermas, débiles o claramente fuera de tipo.",
+          "Marcar 25 a 40 plantas superiores y representativas, y dejarlas florecer.",
+          "Cosechar y guardar la semilla de cada variedad por separado."
+        ]},
+        { "tipo": "aviso", "texto": "No seleccionar solamente por tamaño. La selección tiene que ser amplia para conservar diversidad, pero dirigida para favorecer la adaptación local y lo que necesita el baby leaf." },
+        { "tipo": "parrafo", "texto": "No hace falta esperar varias generaciones para tener semilla propia: si el material de partida es de polinización abierta, la semilla de la primera generación seleccionada ya es semilla propia y se puede sembrar. Lo que sí lleva varias generaciones es modificar la población por selección recurrente o estabilizar un tipo nuevo." }
+      ]
+    },
+
+    {
+      "id": "criterios-baby-leaf",
+      "titulo": "Qué mirar para baby leaf",
+      "emoji": "🍃",
+      "resumen": "Los diez criterios de selección orientados a hoja tierna.",
+      "bloques": [
+        { "tipo": "lista", "titulo": "Criterios", "items": [
+          "Emergencia rápida y uniforme.",
+          "Vigor inicial sin crecimiento desparejo.",
+          "Uniformidad del tamaño de hoja dentro del tipo varietal.",
+          "Color y forma de hoja característicos de la variedad.",
+          "Buena sanidad y ausencia de síntomas durante el ciclo.",
+          "Velocidad de crecimiento compatible con las demás variedades del mix.",
+          "Buena proporción de hoja cosechable.",
+          "Textura y apariencia adecuadas para consumo como hoja tierna.",
+          "Tolerancia al estrés y, cuando corresponda, menor tendencia al espigado.",
+          "Capacidad de rebrote si se usa un sistema de cortes sucesivos."
+        ]},
+        { "tipo": "parrafo", "texto": "La velocidad de crecimiento merece atención especial: si una variedad llega al corte diez días después que las otras cinco, no sirve para el mix aunque sea la mejor de todas por separado." }
+      ]
+    },
+
+    {
+      "id": "escalas",
+      "titulo": "Las escalas 1 a 5",
+      "emoji": "📊",
+      "resumen": "Qué significa cada puntaje. Definirlo antes de empezar es lo que hace que los datos de seis personas se puedan comparar.",
+      "bloques": [
+        { "tipo": "parrafo", "texto": "Las escalas hay que acordarlas antes de la primera evaluación y no cambiarlas después. Si cada estudiante interpreta el 3 a su manera, los datos de las seis variedades no se pueden poner en el mismo cuadro." },
+        { "tipo": "escala", "titulo": "Vigor", "items": [
+          "1 — Muy bajo: plántulas raquíticas, casi sin crecer.",
+          "2 — Bajo: crecimiento lento y desparejo.",
+          "3 — Medio: crece, sin llamar la atención.",
+          "4 — Bueno: plantas firmes y bien desarrolladas.",
+          "5 — Muy alto: crecimiento notablemente rápido y parejo."
+        ]},
+        { "tipo": "escala", "titulo": "Uniformidad", "items": [
+          "1 — Muy heterogénea: no hay dos plantas iguales.",
+          "2 — Heterogénea: se ven tres o cuatro tipos distintos.",
+          "3 — Intermedia: la mayoría se parece, con varias fuera de tipo.",
+          "4 — Uniforme: pocas plantas fuera de tipo.",
+          "5 — Muy uniforme: el lote parece una sola planta repetida."
+        ]},
+        { "tipo": "escala", "titulo": "Sanidad", "items": [
+          "1 — Muy afectada: síntomas generalizados, plantas perdidas.",
+          "2 — Afectada: síntomas claros en buena parte del lote.",
+          "3 — Síntomas leves en algunas plantas.",
+          "4 — Casi sin síntomas.",
+          "5 — Sana: ningún síntoma visible."
+        ]},
+        { "tipo": "escala", "titulo": "Color y textura", "items": [
+          "1 — Muy alejado de lo esperado para la variedad.",
+          "2 — Apagado o fuera de tipo.",
+          "3 — Aceptable.",
+          "4 — Bueno, característico de la variedad.",
+          "5 — Excelente, es el color o la textura que se busca para el mix."
+        ]},
+        { "tipo": "aviso", "texto": "Las mediciones objetivas (centímetros, gramos, conteos) acompañan a las apreciaciones visuales. No las reemplazan, pero tampoco al revés." }
+      ]
+    },
+
+    {
+      "id": "cosecha-semilla",
+      "titulo": "Cosecha y conservación de la semilla",
+      "emoji": "🫙",
+      "resumen": "La maduración es escalonada: se cosecha por tandas, cuando la cabezuela muestra el vilano blanco.",
+      "bloques": [
+        { "tipo": "parrafo", "texto": "Las semillas de lechuga no maduran todas juntas. Se puede cosechar periódicamente, cuando las cabezuelas muestran el vilano blanco (el pappus) y la semilla está madura, evitando que el viento la disperse. La otra opción es cubrir la inflorescencia, o cortar la planta cuando la mayor parte de las cabezuelas está madura y terminar el secado bajo techo." },
+        { "tipo": "pasos", "titulo": "Después de cosechar", "items": [
+          "Limpiar la semilla (zarandeo y viento).",
+          "Secarla completamente: la humedad es lo que más acorta la vida de la semilla.",
+          "Guardarla en recipiente hermético.",
+          "Rotular: variedad, año, origen, lote y observaciones.",
+          "Conservar en lugar fresco, seco y oscuro."
+        ]},
+        { "tipo": "aviso", "texto": "La semilla de cada variedad se guarda SIEMPRE por separado. El mix se arma recién al momento de sembrar." }
+      ]
+    },
+
+    {
+      "id": "decision-mix",
+      "titulo": "Cómo se decide el mix al final",
+      "emoji": "⚖️",
+      "resumen": "No se decide solo por rendimiento: se ponderan cuatro dimensiones.",
+      "bloques": [
+        { "tipo": "lista", "titulo": "Las cuatro dimensiones", "items": [
+          "Adaptación y comportamiento agronómico.",
+          "Rendimiento y uniformidad.",
+          "Calidad sensorial y visual.",
+          "Complementariedad entre variedades."
+        ]},
+        { "tipo": "parrafo", "texto": "La cuarta es la que se olvida. Dos variedades excelentes pero del mismo color y la misma forma aportan menos al mix que una buena y una regular que se complementan." }
+      ]
+    },
+
+    {
+      "id": "metodo",
+      "titulo": "Para que los datos se puedan comparar",
+      "emoji": "🔬",
+      "resumen": "Mismo sustrato, mismo riego, misma fecha, mismo esquema de evaluación para las seis.",
+      "bloques": [
+        { "tipo": "parrafo", "texto": "Todas las variedades tienen que manejarse bajo las mismas condiciones de sustrato, riego, fertilización, fecha de siembra y esquema de evaluación. Si una variedad recibe un manejo distinto, la diferencia que se mida al final puede ser del manejo y no de la variedad, y no hay forma de saber cuál de las dos cosas fue." },
+        { "tipo": "lista", "titulo": "Salvo que se busque otra cosa", "items": [
+          "La única razón para cambiar una condición es que el objetivo sea justamente estudiar el efecto de esa condición.",
+          "En ese caso hay que escribirlo antes de empezar, no explicarlo después."
+        ]}
+      ]
+    }
+  ],
+
+  "referencias": [
+    "University of Florida IFAS Extension. ENH1383/EP647. A Beginner's Guide to Producing and Saving Open-Pollinated Seeds for North Florida Farmers and Gardeners.",
+    "Cornell Cooperative Extension. Winter Vegetable Blog: Seed Production of Tomato, Annual Brassica, and Lettuce for On-Farm Use (2024).",
+    "Virginia Tech, Vegetable Seed Production. Lettuce.",
+    "Seed Savers Exchange. Growing Guide: Lettuce.",
+    "Seed Savers Connect. Lettuce / Quick and Easy Lettuce Seed Saving.",
+    "Iowa State University Extension. How to Harvest and Store Seeds.",
+    "UC Agriculture and Natural Resources. Seed Distance Chart."
+  ]
+}

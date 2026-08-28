@@ -1,0 +1,287 @@
+{
+  "temporada": "2026-2027",
+  "nota": "Las seis variedades del proyecto. Los datos de cada ficha salen de la descripción del obtentor o del semillero; lo que está bajo 'a confirmar' es justamente lo que el seguimiento del curso tiene que responder con datos propios. Para cambiar una variedad, editar este archivo: la app y la wiki se arman solas a partir de acá.",
+  "nota_proporcion": "El porcentaje es una propuesta de partida dentro de la fracción de lechuga del mix, no una decisión tomada. La composición final se define con los datos de la etapa baby leaf y con la ficha de síntesis de cada estudiante.",
+
+  "variedades": [
+    {
+      "id": "reina-de-mayo",
+      "nombre": "Reina de Mayo",
+      "nombre_largo": "Reina de Mayo, selección Princesa de Mayo",
+      "tipo": "Mantecosa (trocadero)",
+      "color": "Verde claro",
+      "emoji": "🥬",
+      "rol": "Base tierna del mix",
+      "proporcion": 20,
+      "obtentor": "Variedad tradicional europea",
+      "proveedor": "Semillas Batlle",
+      "multiplicable": "Sí. Variedad tradicional de polinización abierta, de las más antiguas y difundidas del tipo trocadero.",
+      "resumen": "Mantecosa clásica de repollo redondo, apretado y lleno, de hoja verde claro y sabor marcado. Es de las lechugas más tiernas del mix.",
+      "foto": {
+        "archivo": "reina-de-mayo.webp",
+        "pie": "Sobre comercial de la selección Princesa de Mayo.",
+        "credito": "Semillas Batlle",
+        "url": "https://semillasbatlle.com/productosbatlle/semillas/semillas-horticolas/lechuga-reina-de-mayo-sel-princesa-de-mayo/"
+      },
+      "datos": {
+        "Ciclo": "60 días desde el trasplante",
+        "Porte": "Repollo redondo, apretado y lleno",
+        "Hoja": "Verde claro, tipo trocadero",
+        "Sabor": "Muy tierna y sabrosa",
+        "Trasplante": "Cuando el plantín llega a 8 cm",
+        "Marco": "30 × 40 cm"
+      },
+      "fortalezas": [
+        "Ternura de hoja: es la referencia del tipo mantecosa.",
+        "Se puede sembrar todo el año, con preferencia de septiembre a febrero.",
+        "Variedad tradicional muy estable, fácil de mantener por selección masal.",
+        "Sabor pronunciado, que en un mix de hojas suaves se nota."
+      ],
+      "cuidados": [
+        "La hoja mantecosa se magulla: cuidar el manipuleo en el corte de baby leaf y enfriar rápido.",
+        "Al acogollar, si se pasa de punto la hoja interna queda blanca y sin gracia para el mix."
+      ],
+      "babyleaf": "Aporta la hoja ancha y tierna que hace de base. Sin un componente así, el mix queda todo textura y nada de suavidad.",
+      "a_confirmar": [
+        "Días reales al primer corte en baby leaf en nuestra zona.",
+        "Si acogolla demasiado rápido para el sistema de cortes sucesivos.",
+        "Comportamiento frente al espigado en la fecha de siembra que usemos."
+      ],
+      "fuentes": [
+        { "titulo": "Semillas Batlle — Lechuga Reina de Mayo sel. Princesa de Mayo", "url": "https://semillasbatlle.com/productosbatlle/semillas/semillas-horticolas/lechuga-reina-de-mayo-sel-princesa-de-mayo/" }
+      ]
+    },
+
+    {
+      "id": "gallega-de-invierno",
+      "nombre": "Gallega de Invierno",
+      "tipo": "Mantecosa",
+      "color": "Verde medio",
+      "emoji": "❄️",
+      "rol": "Rusticidad y frío",
+      "proporcion": 15,
+      "obtentor": "Variedad tradicional",
+      "proveedor": "Rodeo Semillas",
+      "multiplicable": "Sí. Variedad tradicional de polinización abierta, de multiplicación libre.",
+      "resumen": "Mantecosa de cabeza grande y hojas largas y abiertas, de textura crujiente. Es la variedad de invierno del grupo, con muy buena poscosecha.",
+      "foto": {
+        "archivo": "gallega.webp",
+        "pie": "Planta de Gallega de Invierno.",
+        "credito": "Rodeo Semillas",
+        "url": "https://rodeosemillas.com/producto/lechuga-mantecosa-gallega-de-invierno/"
+      },
+      "datos": {
+        "Ciclo": "70 días aproximadamente",
+        "Porte": "Cabeza grande, hojas largas y abiertas, 40 × 18 cm",
+        "Peso de planta": "400 g en promedio",
+        "Hoja": "Verde medio, contextura crujiente",
+        "Época": "Cultivo de invierno"
+      },
+      "fortalezas": [
+        "Alta tolerancia al frío: junto con Lilar es la que sostiene el mix en invierno.",
+        "Buena poscosecha: la hoja aguanta el lavado, el envasado y unos días de góndola.",
+        "Textura crujiente dentro del tipo mantecosa, cosa poco común.",
+        "Variedad rústica y tradicional, muy estable."
+      ],
+      "cuidados": [
+        "Ciclo largo (70 días a planta entera): si se siembra el mismo día que las demás, llega más tarde. Conviene adelantarle la siembra."
+      ],
+      "babyleaf": "Aporta cuerpo y crocancia. Es la que evita que la mezcla se apelmace en la bolsa.",
+      "a_confirmar": [
+        "Cuántos días de desfasaje tiene con las otras cinco en baby leaf.",
+        "Si el ciclo largo se acorta lo suficiente cortando hoja tierna.",
+        "Comportamiento en nuestras heladas comparado con Lilar."
+      ],
+      "fuentes": [
+        { "titulo": "Rodeo Semillas — Lechuga mantecosa Gallega de Invierno", "url": "https://rodeosemillas.com/producto/lechuga-mantecosa-gallega-de-invierno/" }
+      ]
+    },
+
+    {
+      "id": "brisa",
+      "nombre": "Brisa",
+      "tipo": "Crespa verde",
+      "color": "Verde claro amarillento",
+      "emoji": "🥗",
+      "rol": "Textura crespa y calor",
+      "proporcion": 15,
+      "obtentor": "Bonanza Seeds",
+      "proveedor": "Rodeo Semillas",
+      "multiplicable": "Sí. El obtentor la declara expresamente de polinización abierta.",
+      "resumen": "Crespa semiabierta de hojas rizadas y abullonadas, verde claro. Es la más rústica del grupo y la que mejor aguanta el calor.",
+      "foto": {
+        "archivo": "brisa.webp",
+        "pie": "Planta de lechuga crespa Brisa.",
+        "credito": "Rodeo Semillas",
+        "url": "https://rodeosemillas.com/producto/lechuga-crespa-brisa/"
+      },
+      "datos": {
+        "Ciclo": "45–50 días en primavera-verano; 70–75 días en otoño-invierno",
+        "Porte": "Planta grande, estructura erecta, semiabierta",
+        "Peso de planta": "400 g aproximadamente",
+        "Hoja": "Rizada y abullonada, borde crespo, verde claro amarillento",
+        "Semilla": "Negra"
+      },
+      "fortalezas": [
+        "Alta rusticidad a campo abierto y muy buena tolerancia al calor.",
+        "Excelente tolerancia a la subida a flor.",
+        "Resistente a la quebradura de borde (tipburn).",
+        "Muy adaptable: anda en distintas zonas y en distintas épocas del año.",
+        "Apta para invernáculo y para huerta a campo."
+      ],
+      "cuidados": [
+        "En pleno verano conviene media sombra, aunque tolere el calor.",
+        "La hoja rizada retiene agua y tierra: cuidar el riego por aspersión cerca del corte."
+      ],
+      "babyleaf": "Aporta el volumen crespo y el verde claro. Es el componente que más contrasta en forma con las dos hojas de roble.",
+      "a_confirmar": [
+        "Diferencia real de ciclo entre la siembra de primavera y la de otoño en nuestra zona (el semillero declara 25 días de diferencia).",
+        "Capacidad de rebrote al segundo y tercer corte.",
+        "Uniformidad del lote a partir de la semilla que compramos."
+      ],
+      "fuentes": [
+        { "titulo": "Rodeo Semillas — Lechuga crespa Brisa", "url": "https://rodeosemillas.com/producto/lechuga-crespa-brisa/" },
+        { "titulo": "Bonanza Seeds — Lettuce varieties (BRISA)", "url": "https://www.bonanzaseeds.com/bonanza-lettuce-laitue-lechuga-es.php" }
+      ]
+    },
+
+    {
+      "id": "kantu",
+      "nombre": "Kantu",
+      "nombre_largo": "Hoja de Roble Kantu",
+      "tipo": "Hoja de roble verde",
+      "color": "Verde claro",
+      "emoji": "🌿",
+      "rol": "Forma y textura baby leaf",
+      "proporcion": 15,
+      "obtentor": "Florensa (línea Alta Gama)",
+      "proveedor": "Florensa",
+      "multiplicable": "Sí. El semillero la clasifica como OP, de polinización abierta.",
+      "resumen": "Hoja de roble verde claro, en roseta de muchas hojas, bien estructurada y de base limpia. Se puede cultivar todo el año, incluso con bajas temperaturas.",
+      "foto": {
+        "archivo": "kantu.webp",
+        "pie": "Planta de Hoja de Roble Kantu.",
+        "credito": "Florensa Argentina",
+        "url": "https://florensa.com.ar/sitio/producto/lechuga-hoja-de-roble-kantu/"
+      },
+      "datos": {
+        "Porte": "Roseta de muchas hojas, bien estructurada, base limpia",
+        "Hoja": "Lobulada tipo roble, verde claro, textura suave",
+        "Vigor": "Buen volumen y vigor",
+        "Época": "Todo el año, incluso con bajas temperaturas",
+        "Tipo": "OP · línea Alta Gama"
+      },
+      "fortalezas": [
+        "Alta resistencia a la subida a flor.",
+        "Resistencia a pulgón, que es la plaga que más ensucia la hoja tierna.",
+        "Resistencia a 1–26 razas de Bremia (mildiu velloso).",
+        "Tolerancia a oídio (Powdery mildew).",
+        "Base limpia: menos descarte al cortar.",
+        "Es la variedad del grupo con más resistencias declaradas."
+      ],
+      "cuidados": [
+        "La hoja de roble es más frágil que la crespa: cortar y enfriar rápido."
+      ],
+      "babyleaf": "Aporta la forma recortada en verde. Junto con Granate son las dos que hacen que el mix se vea trabajado y no como lechuga picada.",
+      "a_confirmar": [
+        "Ciclo real hasta el primer corte, que el semillero no publica.",
+        "Peso de planta y rendimiento en g/m².",
+        "Rebrote después del primer corte."
+      ],
+      "fuentes": [
+        { "titulo": "Florensa Argentina — Lechuga Hoja de Roble Kantu", "url": "https://florensa.com.ar/sitio/producto/lechuga-hoja-de-roble-kantu/" }
+      ]
+    },
+
+    {
+      "id": "granate",
+      "nombre": "Granate",
+      "nombre_largo": "Hoja de Roble Granate",
+      "tipo": "Hoja de roble roja",
+      "color": "Rojo oscuro brillante",
+      "emoji": "🍁",
+      "rol": "Color rojo y forma",
+      "proporcion": 20,
+      "obtentor": "Florensa (línea Alta Gama)",
+      "proveedor": "Florensa",
+      "multiplicable": "Sí. El semillero la clasifica como OP, de polinización abierta.",
+      "resumen": "Hoja de roble de color rojo oscuro brillante, de porte semierguido y buen despeje del suelo. Es la que da el color rojo del mix.",
+      "foto": {
+        "archivo": "granate.webp",
+        "pie": "Planta de Hoja de Roble Granate.",
+        "credito": "Florensa Argentina",
+        "url": "https://florensa.com.ar/sitio/producto/lechuga-hoja-de-roble-granate/"
+      },
+      "datos": {
+        "Porte": "Semierguido, con buen despeje del suelo",
+        "Volumen": "Intermedio, buena densidad de hojas",
+        "Hoja": "Lobulada tipo roble, rojo oscuro brillante",
+        "Tipo": "OP · línea Alta Gama"
+      },
+      "fortalezas": [
+        "Resistente a la subida a flor.",
+        "Resistencia alta (HR) a Bremia, razas Bl 1–26.",
+        "El despeje del suelo mantiene la hoja limpia: menos tierra y menos podredumbre basal.",
+        "Color rojo oscuro y brillante, que es el que se busca para el mix."
+      ],
+      "cuidados": [
+        "El color rojo depende de la luz: con poca luz o mucha sombra la hoja sale más verde y pierde el efecto en la mezcla.",
+        "Con exceso de nitrógeno el rojo se apaga y la hoja se ablanda."
+      ],
+      "babyleaf": "Rojo y forma en la misma hoja. Es el componente que más cambia el aspecto de la bolsa.",
+      "a_confirmar": [
+        "Ciclo real hasta el primer corte, que el semillero no publica.",
+        "Intensidad del rojo con nuestra luz y nuestras temperaturas.",
+        "Si conviene subirla o bajarla del 20 % según cómo se vea la mezcla."
+      ],
+      "fuentes": [
+        { "titulo": "Florensa Argentina — Lechuga Hoja de Roble Granate", "url": "https://florensa.com.ar/sitio/producto/lechuga-hoja-de-roble-granate/" }
+      ]
+    },
+
+    {
+      "id": "lilar",
+      "nombre": "Lilar",
+      "tipo": "Mantecosa morada",
+      "color": "Morado rojizo de brillo intenso",
+      "emoji": "🟣",
+      "rol": "Color morado y frío extremo",
+      "proporcion": 15,
+      "obtentor": "Semillas de Oro S.A.",
+      "proveedor": "Rodeo Semillas",
+      "multiplicable": "A confirmar con el proveedor. La lechuga casi nunca es híbrida F1, pero antes de multiplicar conviene pedir por escrito que la variedad es de polinización abierta y que no tiene restricción de propiedad vegetal.",
+      "resumen": "Mantecosa de planta abierta y color morado rojizo muy intenso, con valor ornamental. Es la variedad pensada para el invierno.",
+      "foto": {
+        "archivo": "lilar.webp",
+        "pie": "Planta de lechuga mantecosa Lilar.",
+        "credito": "Rodeo Semillas",
+        "url": "https://rodeosemillas.com/producto/lechuga-mantecosa-lila-mza/"
+      },
+      "datos": {
+        "Ciclo": "60–70 días",
+        "Porte": "Planta abierta tipo mantecosa, 30 × 25 cm",
+        "Peso de planta": "450 g aproximadamente",
+        "Hoja": "Mantecosa, morado rojizo brillante",
+        "Época": "Ideal para cultivo de invierno"
+      },
+      "fortalezas": [
+        "Alta resistencia a bajas temperaturas: es la que más aguanta el invierno de la Comarca.",
+        "Morado intenso, que es un color distinto del rojo de Granate: la bolsa queda de tres colores y no de dos.",
+        "Buen tamaño y peso de planta."
+      ],
+      "cuidados": [
+        "Ciclo largo (60–70 días a planta entera): llega más tarde al corte que Brisa o Reina de Mayo.",
+        "Al ser mantecosa y morada, es la más sensible al manipuleo: el golpe se ve enseguida."
+      ],
+      "babyleaf": "Aporta el tono morado. Es el color que más se nota en la bolsa y el que más rápido se pierde si la planta crece con poca luz.",
+      "a_confirmar": [
+        "Si es de polinización abierta y se puede multiplicar legalmente. Es la única de las seis sin confirmar.",
+        "Cuántos días de desfasaje tiene con las otras cinco en baby leaf: es el dato que decide si se siembra antes.",
+        "Comportamiento en nuestras heladas comparado con Gallega de Invierno."
+      ],
+      "fuentes": [
+        { "titulo": "Rodeo Semillas — Lechuga mantecosa Lilar", "url": "https://rodeosemillas.com/producto/lechuga-mantecosa-lila-mza/" }
+      ]
+    }
+  ]
+}
