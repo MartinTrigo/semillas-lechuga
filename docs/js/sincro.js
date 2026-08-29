@@ -21,7 +21,11 @@ window.Sincro = (function () {
   // Se completa después de publicar el Apps Script (ver INSTALACION.md, paso 4).
   // Mientras esté vacía, la app avisa que todavía no hay a dónde enviar y sigue
   // guardando todo en el teléfono sin perder nada.
-  const SERVICIO = "";
+  //
+  // Implementación publicada el 29/08/2026. Si se hace una implementación NUEVA
+  // en vez de una versión nueva, esta dirección cambia y hay que actualizarla
+  // acá y subir el número de CACHE en sw.js.
+  const SERVICIO = "https://script.google.com/macros/s/AKfycbzATuweiSc6_L3AiaxUKM0A28UQ6_mypNvYbvHSzF7Ib8jClaAlS_EoOgod3ZGVL2T5/exec";
 
   const hayServicio = () => !!SERVICIO;
 
