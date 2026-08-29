@@ -54,6 +54,15 @@ aparece en la hoja *Invitaciones* y en el registro de ejecución.
 
 Anotá en la columna *Para quién* a quién se lo diste.
 
+### Anular un código que todavía no se usó
+
+En la hoja **Invitaciones**, cambiá la columna *Estado* de `Nueva` a cualquier
+otra cosa: `Anulado`, `De más`, lo que sea. Solo sirve un código que siga
+diciendo `Nueva`.
+
+Es lo que hay que hacer si ejecutaste `crearInvitaciones()` dos veces y quedaron
+códigos de sobra: los de más siguen siendo válidos hasta que se los tache.
+
 ### Dar de baja un teléfono
 
 En la planilla *Semillas · Accesos*, hoja **Dispositivos**: poner **NO** en la

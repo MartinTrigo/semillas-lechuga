@@ -486,9 +486,15 @@ function canjearInvitacion(codigo, persona, dispositivo) {
 
     for (var i = 0; i < filas.length; i++) {
       if (String(filas[i][0]).trim().toUpperCase() !== codigo) continue;
-      if (String(filas[i][3]).toLowerCase() === "usado") {
-        return rechazo("Ese código ya se usó en otro teléfono.");
-      }
+
+      // Solo sirve un código que siga diciendo "Nueva". Antes se rechazaba
+      // únicamente el que dijera "Usado", y eso era una trampa: el docente que
+      // escribiera "Anulado" o "De más" en esa celda para dar de baja un código
+      // lo dejaba funcionando igual. Ahora vale al revés: cualquier cosa que no
+      // sea "Nueva" lo inutiliza, que es lo que uno espera al tacharlo.
+      var estado = String(filas[i][3] || "").trim().toLowerCase();
+      if (estado === "usado") return rechazo("Ese código ya se usó en otro teléfono.");
+      if (estado !== "nueva") return rechazo("Ese código fue dado de baja. Pedile otro al docente.");
 
       var variedad = String(filas[i][1] || "").trim();
       if (!VARIEDADES[variedad]) return rechazo("Ese código no tiene variedad asignada. Avisale al docente.");
