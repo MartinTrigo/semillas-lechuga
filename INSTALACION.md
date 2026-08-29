@@ -37,27 +37,46 @@ https://docs.google.com/spreadsheets/d/1AbC…XyZ/edit
    Nombre: `Semillas de Lechuga`.
 2. Borrá el contenido de `Código.gs` y pegá entero
    [`apps-script/Code.gs`](apps-script/Code.gs) de este repositorio.
-3. Engranaje (**Configuración del proyecto**) → **Propiedades del script** →
-   **Agregar propiedad de script**, tres veces:
+3. Cargar tres propiedades: `REGISTROS`, `ACCESOS` y `CLAVE_ADMIN`.
 
-   | Propiedad | Valor |
-   |---|---|
-   | `REGISTROS` | *Semillas · Registros* |
-   | `ACCESOS` | *Semillas · Accesos* |
-   | `CLAVE_ADMIN` | una clave larga y al azar, inventada por vos |
+   Hay dos caminos. **El de abajo es el recomendado**, porque el de la pantalla
+   de configuración tiene una trampa conocida.
 
-   En las dos primeras podés pegar el **id pelado o la dirección entera** de la
-   planilla: el script recorta el id solo.
+   ### Camino A — desde el código *(recomendado)*
 
-   > **Y apretá «Guardar propiedades del script».** El botón está abajo del
-   > formulario. Si no se aprieta, las filas quedan escritas en la pantalla pero
-   > no se guardan, y el script sigue sin ver ninguna propiedad. Es el error más
-   > común de este paso.
+   En `Code.gs`, arriba de todo, está la función `cargarPropiedades()`. Pegá en
+   sus dos primeras líneas las direcciones de las planillas —la dirección entera
+   copiada de la barra del navegador, sin recortar nada—:
+
+   ```js
+   function cargarPropiedades() {
+     var REGISTROS = "https://docs.google.com/spreadsheets/d/1AbC…/edit";
+     var ACCESOS   = "https://docs.google.com/spreadsheets/d/1XyZ…/edit";
+   ```
+
+   Guardá el archivo, elegí `cargarPropiedades` en el desplegable de funciones y
+   ejecutala. La clave de administración la genera sola, al azar, y la muestra
+   una vez en el registro: **copiala y guardala ahí mismo**, en `IDS.txt` o en
+   tu gestor de contraseñas.
+
+   Después **volvé a dejar esas dos líneas vacías** (`var REGISTROS = "";`) y
+   guardá. Las propiedades ya quedaron guardadas; no hace falta que las
+   direcciones sigan en el código.
+
+   ### Camino B — desde la pantalla de configuración
+
+   Engranaje (**Configuración del proyecto**) → bajar hasta **Propiedades del
+   script** → **Agregar propiedad de script**, tres veces, y después
+   **apretar el botón «Guardar propiedades del script»**.
+
+   > Ese botón está abajo del formulario y es fácil no verlo. Si no se aprieta,
+   > las filas quedan escritas en la pantalla pero **no se guarda nada**, y el
+   > script sigue sin ver ninguna propiedad. Es el error más común de todo este
+   > instructivo.
 
    Los nombres distinguen mayúsculas: tiene que decir `ACCESOS`, no `Accesos`.
-
-   La clave de administración **no se anota en el repositorio**. Va en `IDS.txt`
-   o en tu gestor de contraseñas.
+   En `REGISTROS` y `ACCESOS` podés pegar el id pelado o la dirección entera: el
+   script recorta el id solo.
 
 ## 3. Revisar y preparar las hojas
 
@@ -66,7 +85,8 @@ No toca nada: mira y cuenta en castellano qué encontró y qué falta. La primer
 vez Google va a pedir permisos: son los de tu propia cuenta para escribir en tus
 propias planillas.
 
-En **Ver → Registros** vas a ver algo así:
+La salida aparece en el panel **Registro de ejecución**, abajo del código, que
+se abre solo al ejecutar. Vas a ver algo así:
 
 ```
 Propiedades que ve el script: REGISTROS, ACCESOS, CLAVE_ADMIN
@@ -115,8 +135,8 @@ versión nueva, cambia la URL y hay que actualizar la app.
 ## 5. Los códigos de acceso
 
 En el editor, ejecutá `crearInvitaciones()`. Saca los seis códigos de una, uno
-por variedad, y los deja anotados en la hoja *Invitaciones* y en el registro de
-ejecución (**Ver → Registros**).
+por variedad, y los deja anotados en la hoja *Invitaciones* y en el panel
+**Registro de ejecución**, abajo del código.
 
 Anotá en la columna *Para quién* de esa hoja a qué estudiante le diste cada uno.
 

@@ -89,6 +89,61 @@ function libroAccesos() {
 }
 
 // ==========================================================================
+// CARGAR LAS PROPIEDADES DESDE ACÁ
+//
+// La pantalla de Propiedades del script tiene una trampa: se cargan las filas,
+// se sale, y no se guardó nada, porque hay un botón "Guardar propiedades del
+// script" abajo del formulario que es fácil no ver. Esta función hace lo mismo
+// sin pasar por esa pantalla.
+//
+// CÓMO SE USA
+//   1. Pegar abajo las direcciones de las dos planillas. Sirve la dirección
+//      entera copiada de la barra del navegador; no hace falta recortar nada.
+//   2. Elegir cargarPropiedades en el desplegable de funciones y Ejecutar.
+//   3. Mirar el Registro de ejecución: dice qué guardó.
+//   4. VOLVER A DEJAR LAS DOS LÍNEAS VACÍAS y guardar el archivo.
+//
+// El paso 4 importa: mientras las direcciones estén escritas acá, quedan en el
+// código del proyecto. No es grave —el proyecto de Apps Script es tuyo y no se
+// publica— pero el criterio de todo el repositorio es que los identificadores
+// no vivan en el código. La clave de administración no se escribe nunca acá:
+// la genera esta función sola, al azar, y la muestra una vez.
+// ==========================================================================
+
+function cargarPropiedades() {
+  var REGISTROS = "";     // ← "Semillas - Registros"
+  var ACCESOS   = "";     // ← "Semillas - Accesos"
+
+  var props = PropertiesService.getScriptProperties();
+  var hechas = [];
+
+  if (REGISTROS) { props.setProperty("REGISTROS", idDe(REGISTROS)); hechas.push("REGISTROS"); }
+  if (ACCESOS)   { props.setProperty("ACCESOS",   idDe(ACCESOS));   hechas.push("ACCESOS"); }
+
+  // La clave de administración se genera acá y no se anota en ningún archivo:
+  // se copia del registro y se guarda en IDS.txt o en el gestor de contraseñas.
+  // Si ya existe, no se pisa: cambiarla sin querer dejaría afuera a quien la
+  // esté usando.
+  if (!propiedad("CLAVE_ADMIN")) {
+    var clave = alAzar(6) + "-" + alAzar(6) + "-" + alAzar(6) + "-" + alAzar(6);
+    props.setProperty("CLAVE_ADMIN", clave);
+    hechas.push("CLAVE_ADMIN");
+    Logger.log("CLAVE_ADMIN generada. Copiala y guardala, no se vuelve a mostrar:\n\n    "
+               + clave + "\n");
+  }
+
+  if (!hechas.length) {
+    Logger.log("No se cargó nada: las dos direcciones de arriba están vacías. "
+               + "Pegalas en las líneas REGISTROS y ACCESOS y volvé a ejecutar.");
+    return "sin cambios";
+  }
+
+  Logger.log("Guardadas: " + hechas.join(", ") + "\n");
+  Logger.log(revisarConfiguracion());
+  return hechas.join(", ");
+}
+
+// ==========================================================================
 // DIAGNÓSTICO
 //
 // Se ejecuta A MANO cuando algo no arranca. No toca nada: solo mira y cuenta

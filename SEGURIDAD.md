@@ -82,7 +82,8 @@ rompió algo antes de que lo diga.
 `CLAVE_ADMIN` permite escribir sin credencial de dispositivo. Es la puerta de
 servicio: sirve para corregir desde una planilla o un script propio.
 
-- Se genera larga y al azar.
+- La genera `cargarPropiedades()` sola, larga y al azar, y la muestra una única
+  vez en el registro de ejecución. Copiala en ese momento.
 - **No se anota en el repositorio.** Va en `IDS.txt` (que no se publica) o en un
   gestor de contraseñas.
 - Si se sospecha que se filtró, se cambia el valor de la propiedad en Apps
