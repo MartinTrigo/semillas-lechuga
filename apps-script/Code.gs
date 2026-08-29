@@ -18,8 +18,9 @@
 //   1. Crear en Drive la carpeta "Semillas de Lechuga — Datos".
 //   2. Adentro, dos planillas: "Semillas · Registros" y "Semillas · Accesos".
 //   3. En el editor: Configuración del proyecto (engranaje) → Propiedades del
-//      script → cargar REGISTROS, ACCESOS y CLAVE_ADMIN.
-//   4. Ejecutar prepararPlanillas() una vez.
+//      script → cargar REGISTROS, ACCESOS y CLAVE_ADMIN, y APRETAR EL BOTÓN
+//      "Guardar propiedades del script". Si no se aprieta, no se guarda nada.
+//   4. Ejecutar revisarConfiguracion() y después prepararPlanillas().
 //   5. Ejecutar crearInvitaciones() para sacar los seis códigos.
 //   6. Implementar → Nueva implementación → Aplicación web → Ejecutar como: yo,
 //      Quién tiene acceso: cualquier persona. Copiar la URL a docs/js/sincro.js.
@@ -36,21 +37,123 @@
 //   CLAVE_ADMIN  clave de administración, larga y al azar
 //
 function propiedad(nombre) {
-  return PropertiesService.getScriptProperties().getProperty(nombre) || "";
+  return String(PropertiesService.getScriptProperties().getProperty(nombre) || "").trim();
+}
+
+// Acepta tanto el id pelado como la dirección completa de la planilla.
+//
+// Copiar la URL entera es lo que sale natural: se abre la planilla y se copia
+// de la barra del navegador. Pedir que además recorten el pedazo del medio es
+// pedir un paso que se va a errar. Se recorta acá.
+function idDe(valor) {
+  var s = String(valor || "").trim();
+  var enUrl = s.match(/\/d\/([a-zA-Z0-9_-]{20,})/);
+  if (enUrl) return enUrl[1];
+  return s;
+}
+
+function idDePropiedad(nombre) {
+  var crudo = propiedad(nombre);
+  if (!crudo) {
+    throw new Error("Falta la propiedad " + nombre + ". Se carga en Configuración del "
+      + "proyecto (engranaje) → Propiedades del script.");
+  }
+  var id = idDe(crudo);
+  if (!/^[a-zA-Z0-9_-]{20,}$/.test(id)) {
+    throw new Error("La propiedad " + nombre + " no parece un id de planilla ni una "
+      + "dirección de Google Sheets. Dice: " + crudo);
+  }
+  return id;
+}
+
+// Abre la planilla y, si no puede, explica cuál es y por qué.
+function abrirPlanilla(nombre) {
+  var id = idDePropiedad(nombre);
+  try {
+    return SpreadsheetApp.openById(id);
+  } catch (err) {
+    throw new Error("No se pudo abrir la planilla de " + nombre + " (id " + id + "). "
+      + "Suele ser una de tres: el id es de otro archivo, la planilla está en otra "
+      + "cuenta de Google, o el archivo no es una hoja de cálculo. Detalle: " + err);
+  }
 }
 
 function planillaRegistros() {
-  var id = propiedad("REGISTROS");
-  if (!id) throw new Error("Falta la propiedad REGISTROS con el id de la planilla del curso.");
-  return SpreadsheetApp.openById(id);
+  return abrirPlanilla("REGISTROS");
 }
 
 // Planilla aparte con quién tiene acceso. No es la de los datos: si un
 // estudiante pudiera abrirla, vería las huellas de todos los demás.
-function planillaAccesos() {
-  var id = propiedad("ACCESOS");
-  if (!id) throw new Error("Falta la propiedad ACCESOS con el id de la planilla de accesos.");
-  return id;
+function libroAccesos() {
+  return abrirPlanilla("ACCESOS");
+}
+
+// ==========================================================================
+// DIAGNÓSTICO
+//
+// Se ejecuta A MANO cuando algo no arranca. No toca nada: solo mira y cuenta
+// en castellano qué encontró y qué falta. Es lo primero que conviene correr si
+// prepararPlanillas() falla.
+// ==========================================================================
+
+function revisarConfiguracion() {
+  var lineas = [];
+  var todoBien = true;
+
+  // Lo primero: qué propiedades ve el script REALMENTE. Si acá no aparece
+  // ninguna, o aparecen con otro nombre, ese es todo el problema: los nombres
+  // distinguen mayúsculas y no se guardan hasta apretar el botón de guardar.
+  var cargadas = Object.keys(PropertiesService.getScriptProperties().getProperties());
+  lineas.push(cargadas.length
+    ? "Propiedades que ve el script: " + cargadas.join(", ")
+    : "El script NO VE NINGUNA PROPIEDAD. Si las cargaste, faltó apretar "
+      + "«Guardar propiedades del script» abajo del formulario.");
+  lineas.push("");
+
+  ["REGISTROS", "ACCESOS"].forEach(function (nombre) {
+    var crudo = propiedad(nombre);
+    if (!crudo) {
+      lineas.push("✗ " + nombre + ": la propiedad no está cargada.");
+      todoBien = false;
+      return;
+    }
+    try {
+      var libro = abrirPlanilla(nombre);
+      var hojas = libro.getSheets().map(function (h) { return h.getName(); });
+      lineas.push("✓ " + nombre + ": abre bien → " + libro.getName()
+                  + "  [hojas: " + hojas.join(", ") + "]");
+    } catch (err) {
+      lineas.push("✗ " + nombre + ": " + err.message);
+      todoBien = false;
+    }
+  });
+
+  var clave = propiedad("CLAVE_ADMIN");
+  if (!clave) {
+    lineas.push("✗ CLAVE_ADMIN: la propiedad no está cargada.");
+    todoBien = false;
+  } else if (clave.length < 12) {
+    lineas.push("⚠ CLAVE_ADMIN: cargada, pero es corta (" + clave.length
+                + " caracteres). Conviene una de 20 o más, al azar.");
+  } else {
+    lineas.push("✓ CLAVE_ADMIN: cargada (" + clave.length + " caracteres).");
+  }
+
+  if (propiedad("REGISTROS") && propiedad("REGISTROS") === propiedad("ACCESOS")) {
+    lineas.push("✗ REGISTROS y ACCESOS apuntan a la MISMA planilla. Tienen que ser dos "
+                + "archivos distintos: si no, quien abra los datos del curso ve también "
+                + "las credenciales.");
+    todoBien = false;
+  }
+
+  lineas.push("");
+  lineas.push(todoBien
+    ? "Todo en orden. Ya se puede ejecutar prepararPlanillas()."
+    : "Corregí lo marcado con ✗ y volvé a ejecutar esta función.");
+
+  var texto = lineas.join("\n");
+  Logger.log(texto);
+  return texto;
 }
 
 // Las seis variedades del proyecto. Tienen que ser los mismos identificadores
@@ -245,7 +348,7 @@ function encabezadosCompletos(def) {
 // ==========================================================================
 
 function hojaAccesos(nombre, encabezados) {
-  return hojaSuelta(planillaAccesos(), nombre, encabezados);
+  return hojaSuelta(libroAccesos(), nombre, encabezados);
 }
 
 // De la credencial sale siempre la misma huella, pero de la huella no se puede
@@ -360,7 +463,7 @@ function registrarDispositivo(variedad, dispositivo, persona, credencial) {
 function permitido(variedad, credencial, dispositivo) {
   if (!credencial) return rechazo("Este teléfono todavía no tiene acceso.");
 
-  var hoja = SpreadsheetApp.openById(planillaAccesos()).getSheetByName("Dispositivos");
+  var hoja = libroAccesos().getSheetByName("Dispositivos");
   if (!hoja || hoja.getLastRow() < 2) return rechazo("Este teléfono todavía no tiene acceso.");
 
   var buscada = huella(credencial);
@@ -383,7 +486,7 @@ function permitido(variedad, credencial, dispositivo) {
 // Deja constancia de que ese teléfono estuvo activo y cuánto cargó.
 function marcarActividad(fila, cuantos) {
   try {
-    var hoja = SpreadsheetApp.openById(planillaAccesos()).getSheetByName("Dispositivos");
+    var hoja = libroAccesos().getSheetByName("Dispositivos");
     hoja.getRange(fila, 6).setValue(new Date());
     if (cuantos) {
       var previos = Number(hoja.getRange(fila, 7).getValue()) || 0;
@@ -414,7 +517,7 @@ function prepararPlanillas() {
 
   hojaAccesos("Invitaciones", INVITACIONES_ENCABEZADOS);
   hojaAccesos("Dispositivos", DISPOSITIVOS_ENCABEZADOS);
-  limpiarHojaSobrante(SpreadsheetApp.openById(planillaAccesos()));
+  limpiarHojaSobrante(libroAccesos());
   hechas.push("Accesos: Invitaciones y Dispositivos");
 
   var libro = planillaRegistros();
@@ -585,8 +688,7 @@ function guardarIdentidad(libro, registro, variedad) {
 // AUXILIARES
 // ==========================================================================
 
-function hojaSuelta(planillaId, nombre, encabezados) {
-  var libro = SpreadsheetApp.openById(planillaId);
+function hojaSuelta(libro, nombre, encabezados) {
   var hoja = libro.getSheetByName(nombre);
   if (!hoja) {
     var primera = libro.getSheets()[0];

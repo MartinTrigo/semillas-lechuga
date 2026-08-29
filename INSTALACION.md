@@ -38,22 +38,50 @@ https://docs.google.com/spreadsheets/d/1AbC…XyZ/edit
 2. Borrá el contenido de `Código.gs` y pegá entero
    [`apps-script/Code.gs`](apps-script/Code.gs) de este repositorio.
 3. Engranaje (**Configuración del proyecto**) → **Propiedades del script** →
-   agregá tres:
+   **Agregar propiedad de script**, tres veces:
 
    | Propiedad | Valor |
    |---|---|
-   | `REGISTROS` | el id de *Semillas · Registros* |
-   | `ACCESOS` | el id de *Semillas · Accesos* |
+   | `REGISTROS` | *Semillas · Registros* |
+   | `ACCESOS` | *Semillas · Accesos* |
    | `CLAVE_ADMIN` | una clave larga y al azar, inventada por vos |
+
+   En las dos primeras podés pegar el **id pelado o la dirección entera** de la
+   planilla: el script recorta el id solo.
+
+   > **Y apretá «Guardar propiedades del script».** El botón está abajo del
+   > formulario. Si no se aprieta, las filas quedan escritas en la pantalla pero
+   > no se guardan, y el script sigue sin ver ninguna propiedad. Es el error más
+   > común de este paso.
+
+   Los nombres distinguen mayúsculas: tiene que decir `ACCESOS`, no `Accesos`.
 
    La clave de administración **no se anota en el repositorio**. Va en `IDS.txt`
    o en tu gestor de contraseñas.
 
-## 3. Preparar las hojas
+## 3. Revisar y preparar las hojas
 
-En el editor, elegí la función `prepararPlanillas` y ejecutala. La primera vez
-Google va a pedir permisos: son los de tu propia cuenta para escribir en tus
+Primero, en el editor, elegí la función **`revisarConfiguracion`** y ejecutala.
+No toca nada: mira y cuenta en castellano qué encontró y qué falta. La primera
+vez Google va a pedir permisos: son los de tu propia cuenta para escribir en tus
 propias planillas.
+
+En **Ver → Registros** vas a ver algo así:
+
+```
+Propiedades que ve el script: REGISTROS, ACCESOS, CLAVE_ADMIN
+
+✓ REGISTROS: abre bien → Semillas - Registros  [hojas: Hoja 1]
+✓ ACCESOS: abre bien → Semillas - Accesos  [hojas: Hoja 1]
+✓ CLAVE_ADMIN: cargada (24 caracteres).
+
+Todo en orden. Ya se puede ejecutar prepararPlanillas().
+```
+
+Si alguna línea tiene ✗, dice qué pasa y cómo se arregla. La primera línea es la
+que más sirve: muestra los nombres de propiedad que el script ve de verdad.
+
+Cuando esté todo en ✓, elegí `prepararPlanillas` y ejecutala.
 
 Al terminar, las dos planillas quedan con todas sus hojas y encabezados. Es
 idempotente: se puede volver a ejecutar sin romper nada.
