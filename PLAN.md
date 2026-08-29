@@ -11,19 +11,29 @@
 - [x] Todo guardado en el teléfono, sin señal.
 - [x] Cola de envío armada, esperando el servicio.
 
-## Fase 2 — La planilla · **casi**
+## Fase 2 — La planilla · **hecha** (29/08/2026)
 
 - [x] Crear la carpeta de Drive y las dos planillas ([INSTALACION.md](INSTALACION.md)).
 - [x] Cargar las propiedades y ejecutar `prepararPlanillas()`.
 - [x] Publicar el Apps Script y pegar su dirección en `docs/js/sincro.js`.
 - [x] Publicar el repositorio en GitHub Pages:
       <https://martintrigo.github.io/semillas-lechuga/>
-- [ ] **Cambiar el acceso de la implementación a «Cualquier persona».** Quedó
-      restringida y por eso la app no puede enviar: el servicio contesta con la
-      pantalla de inicio de sesión de Google en vez de con datos.
-      Implementar → Administrar implementaciones → lápiz → Quién tiene acceso →
-      Cualquier persona → Implementar. La URL no cambia.
-- [ ] Ejecutar `crearInvitaciones()` y repartir los seis códigos.
+- [x] Abrir el acceso de la implementación a «Cualquier persona».
+- [x] Ejecutar `crearInvitaciones()`: los seis códigos están en la hoja
+      *Invitaciones*.
+
+Comprobado desde la app publicada: el servicio contesta, acepta pedidos desde
+`martintrigo.github.io` y rechaza tanto el envío sin credencial como el que
+lleva una inventada.
+
+### Antes de repartir los códigos
+
+- [ ] **Una prueba de punta a punta**, que todavía no se hizo porque necesita
+      una credencial real y no conviene gastar uno de los seis códigos.
+      Ejecutar `crearInvitacion()` (singular) para sacar un séptimo código de
+      prueba, activar la app con él, cargar un registro cualquiera, enviarlo,
+      confirmar que la fila aparece en la planilla y después borrar esa fila.
+      Es lo único que queda sin verificar: la escritura misma.
 - [ ] Anotar en la columna *Para quién* de la hoja *Invitaciones* a qué
       estudiante le tocó cada variedad.
 
