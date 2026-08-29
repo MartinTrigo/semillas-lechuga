@@ -11,13 +11,21 @@
 - [x] Todo guardado en el teléfono, sin señal.
 - [x] Cola de envío armada, esperando el servicio.
 
-## Fase 2 — La planilla · **falta**
+## Fase 2 — La planilla · **casi**
 
-- [ ] Crear la carpeta de Drive y las dos planillas ([INSTALACION.md](INSTALACION.md)).
-- [ ] Publicar el Apps Script y pegar su dirección en `docs/js/sincro.js`.
-- [ ] Ejecutar `prepararPlanillas()` y `crearInvitaciones()`.
-- [ ] Repartir los seis códigos.
-- [ ] Publicar el repositorio en GitHub Pages.
+- [x] Crear la carpeta de Drive y las dos planillas ([INSTALACION.md](INSTALACION.md)).
+- [x] Cargar las propiedades y ejecutar `prepararPlanillas()`.
+- [x] Publicar el Apps Script y pegar su dirección en `docs/js/sincro.js`.
+- [x] Publicar el repositorio en GitHub Pages:
+      <https://martintrigo.github.io/semillas-lechuga/>
+- [ ] **Cambiar el acceso de la implementación a «Cualquier persona».** Quedó
+      restringida y por eso la app no puede enviar: el servicio contesta con la
+      pantalla de inicio de sesión de Google en vez de con datos.
+      Implementar → Administrar implementaciones → lápiz → Quién tiene acceso →
+      Cualquier persona → Implementar. La URL no cambia.
+- [ ] Ejecutar `crearInvitaciones()` y repartir los seis códigos.
+- [ ] Anotar en la columna *Para quién* de la hoja *Invitaciones* a qué
+      estudiante le tocó cada variedad.
 
 ## Fase 3 — Comparar el mix · **falta**
 

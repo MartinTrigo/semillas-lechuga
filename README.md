@@ -11,6 +11,8 @@ datos de las seis variedades caen en la misma planilla, que es lo que permite
 compararlas al final y decidir con números cuál entra al mix y en qué
 proporción.
 
+**La app está publicada en <https://martintrigo.github.io/semillas-lechuga/>**
+
 Contacto: Martín Trigo — martinemilianotrigo@gmail.com
 
 ---

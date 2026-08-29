@@ -122,6 +122,18 @@ Copiá la URL que queda (termina en `/exec`) y pegala en
 const SERVICIO = "https://script.google.com/macros/s/…/exec";
 ```
 
+> **El campo «Quién tiene acceso» es el que más se erra, y falla en silencio.**
+> Si queda en cualquier otro valor, el servicio contesta con la pantalla de
+> inicio de sesión de Google en vez de con datos, y la app dice "No se pudo
+> conectar" como si fuera falta de señal.
+>
+> Para comprobarlo, abrí la URL `/exec` en una ventana de incógnito: tiene que
+> devolver una línea de texto que empieza con `{"ok":true,"servicio":...`. Si te
+> lleva a iniciar sesión, el acceso está restringido.
+>
+> Se corrige en Implementar → Administrar implementaciones → lápiz → Quién tiene
+> acceso → Cualquier persona → Implementar. **La URL no cambia.**
+
 > **"Cualquier persona" suena mal y no lo es.** Significa que el servicio
 > contesta sin pedir cuenta de Google, que es lo que necesitamos para que los
 > estudiantes no tengan que iniciar sesión. Quien entre sin credencial no

@@ -105,7 +105,14 @@ window.Sincro = (function () {
       await pintar(aviso("ok", "Teléfono activado. Tu variedad es " + (r.variedad || "") + "."));
       brindis("Listo.");
     } catch (err) {
-      await pintar(aviso("error", "No se pudo conectar. Probá con señal. Detalle: " + (err.message || err)));
+      // Acá caen dos cosas muy distintas y conviene nombrar las dos: que no
+      // haya señal, y que el servicio esté publicado sin acceso para cualquier
+      // persona. La segunda le pasa a TODOS a la vez y no se arregla buscando
+      // señal, así que el estudiante tiene que poder distinguirla.
+      await pintar(aviso("error", "No se pudo conectar con el servicio. Si tenés señal y "
+        + "a los demás les pasa lo mismo, avisale al docente: puede ser que la "
+        + "implementación del servicio no esté abierta a cualquier persona. "
+        + "Detalle: " + (err.message || err)));
     } finally {
       trabajando = false;
     }
